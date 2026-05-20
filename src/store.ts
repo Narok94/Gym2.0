@@ -9,7 +9,7 @@ export interface SetState {
 
 export interface Athlete {
   name: string;
-  email: string;
+  email?: string;
   weight: number;
   height: number;
   level: string;
@@ -56,9 +56,8 @@ interface GymStore {
 export const useGymStore = create<GymStore>((set, get) => ({
   athlete: {
     name: "Henrique",
-    email: "cartaotatu@gmail.com",
-    weight: 84.5,
-    height: 1.81,
+    weight: 67,
+    height: 1.68,
     level: "Avançado",
     focus: "Estética Avançada (Foco Costas Largas, Peito Superior, Ombro Lateral)"
   },
@@ -249,7 +248,24 @@ export const useGymStore = create<GymStore>((set, get) => ({
       // 1. Load athlete
       const storedAthlete = localStorage.getItem('tatu_gym_athlete');
       if (storedAthlete) {
-        set({ athlete: JSON.parse(storedAthlete) });
+        const parsed = JSON.parse(storedAthlete);
+        let updated = false;
+        if (parsed.weight === 84.5) {
+          parsed.weight = 67;
+          updated = true;
+        }
+        if (parsed.height === 1.81) {
+          parsed.height = 1.68;
+          updated = true;
+        }
+        if (parsed.email) {
+          delete parsed.email;
+          updated = true;
+        }
+        set({ athlete: parsed });
+        if (updated) {
+          localStorage.setItem('tatu_gym_athlete', JSON.stringify(parsed));
+        }
       }
 
       // 2. Load historical weights to pre-load on sessions

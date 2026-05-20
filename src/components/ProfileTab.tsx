@@ -15,7 +15,6 @@ export default function ProfileTab() {
 
   // Edit form states
   const [formName, setFormName] = useState(athlete.name);
-  const [formEmail, setFormEmail] = useState(athlete.email);
   const [formWeight, setFormWeight] = useState(athlete.weight);
   const [formHeight, setFormHeight] = useState(athlete.height);
   const [formLevel, setFormLevel] = useState(athlete.level || 'Avançado');
@@ -30,7 +29,6 @@ export default function ProfileTab() {
     e.preventDefault();
     updateAthlete({
       name: formName,
-      email: formEmail,
       weight: Number(formWeight),
       height: Number(formHeight),
       level: formLevel,
@@ -42,7 +40,6 @@ export default function ProfileTab() {
   // Open edit modal and load current store data
   const openEditModal = () => {
     setFormName(athlete.name);
-    setFormEmail(athlete.email);
     setFormWeight(athlete.weight);
     setFormHeight(athlete.height);
     setFormLevel(athlete.level || 'Avançado');
@@ -121,7 +118,6 @@ export default function ProfileTab() {
           </div>
           <div className="flex-1 min-w-0" id="profile-user-text">
             <h2 className="text-base font-[950] text-white uppercase italic tracking-wide truncate">{athlete.name}</h2>
-            <p className="text-[10px] text-white/40 tracking-wider truncate font-mono">{athlete.email}</p>
             <div className="flex flex-wrap gap-1.5 mt-1.5" id="profile-user-badges">
               <span className="text-[8px] font-black uppercase text-[#FF5F00] bg-[#FF5F00]/10 px-2 py-0.5 rounded border border-[#FF5F05]/20 font-mono">
                 {formLevel}
@@ -294,20 +290,6 @@ export default function ProfileTab() {
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
                   className="w-full bg-black border border-white/10 focus:border-[#FF5F00] outline-none text-xs text-white px-3 py-2 rounded-xl pr bg-black/80 font-bold"
-                />
-              </div>
-
-              {/* Email */}
-              <div id="form-group-email">
-                <label className="text-[8px] uppercase font-black text-white/50 tracking-widest pl-1 font-mono block mb-1">
-                  Email institucional
-                </label>
-                <input 
-                  type="email"
-                  required
-                  value={formEmail}
-                  onChange={(e) => setFormEmail(e.target.value)}
-                  className="w-full bg-black border border-white/10 focus:border-[#FF5F00] outline-none text-xs text-white px-3 py-2 rounded-xl font-bold font-mono"
                 />
               </div>
 
