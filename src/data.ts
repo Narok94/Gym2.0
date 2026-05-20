@@ -24,7 +24,7 @@ export const WORKOUT_SPLIT: Workout[] = [
   {
     id: "treino-a",
     name: "Treino A",
-    title: "Shape Estético (Push)",
+    title: "Peito, Ombros e Tríceps",
     focus: "Peitoral superior + ombro lateral SEM destruir articulação",
     description: "Foco na porção clavicular do peito, deltoide lateral isolado e proteção articular absoluta.",
     exercises: [
@@ -152,7 +152,7 @@ export const WORKOUT_SPLIT: Workout[] = [
   {
     id: "treino-b",
     name: "Treino B",
-    title: "Costas + Trapézio (V-Taper)",
+    title: "Costas, Trapézio e Bíceps",
     focus: "Esse treino vai construir o 'V'",
     description: "Visando a expansão da largura dorsal, densidade traseira e controle escapular absoluto.",
     exercises: [
@@ -269,7 +269,7 @@ export const WORKOUT_SPLIT: Workout[] = [
   {
     id: "treino-c",
     name: "Treino C",
-    title: "Pernas + Core",
+    title: "Coxas, Panturrilhas e Core",
     focus: "Pernas estéticas sem 'pesar' cintura/quadril",
     description: "Volume estético quadríceps/isquiotibiais focado em manter a cintura escapular e pélvica estreitas e fortes.",
     exercises: [
